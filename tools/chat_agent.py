@@ -10,9 +10,4 @@ def answer_question(df, question):
     if "missing" in question:
         return f"Missing values: {df.isnull().sum().sum()}"
 
-    if "average" in question or "mean" in question:
-        numeric = df.select_dtypes(include=['int64', 'float64'])
-        if not numeric.empty:
-            return numeric.mean().to_string()
-
-    return "I couldn't understand. Try: rows, columns, mean, missing values."
+    return "Try asking about rows, columns, or missing values."
